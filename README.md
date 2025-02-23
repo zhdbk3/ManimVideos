@@ -7,6 +7,7 @@
 ## 目录（按发布时间排序）
 
 - `PAP/`：[[Manim]照片测星定位数学原理动画详解！初中生也能看懂！](https://www.bilibili.com/video/BV1WhPyeNEYP)
+- `N2`：[社交的手腕](https://www.bilibili.com/video/BV1GgAmepEi9)
 
 ## 更多细节
 
