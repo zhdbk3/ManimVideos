@@ -97,7 +97,7 @@ class WithBackground(VGroup):
     def __init__(self, mobj: Mobject):
         """
         给对象添加一个黑色半透明的背景
-        :param mobj: Monject 对象
+        :param mobj: Mobject 对象
         """
         self.mobj = mobj
         self.background = Rectangle(BLACK, mobj.height, mobj.width, fill_opacity=0.5, stroke_width=0).move_to(mobj)
@@ -138,7 +138,7 @@ class Subtitle:
         # 播放音频（如果有）
         if sound_path is not None:
             self.scene.add_sound(sound_path)
-        # 计算需要的世界并等待（如果有）
+        # 计算需要的时间并等待（如果有）
         self.duration = len(text) / 4 if sound_path is None else self.get_duration(sound_path)
         if block:
             self.scene.wait(self.duration, frozen_frame=False)
