@@ -6,8 +6,9 @@
 
 ## 目录（按发布时间排序）
 
-- `PAP/` - [[Manim]照片测星定位数学原理动画详解！初中生也能看懂！](https://www.bilibili.com/video/BV1WhPyeNEYP)
-- `N2/` - [社交的手腕](https://www.bilibili.com/video/BV1GgAmepEi9)
+- [`PAP/`](PAP) - [[Manim]照片测星定位数学原理动画详解！初中生也能看懂！](https://www.bilibili.com/video/BV1WhPyeNEYP)
+- [`N2/`](N2) - [社交的手腕](https://www.bilibili.com/video/BV1GgAmepEi9)
+- [`SpreadAngle/`](SpreadAngle) - [【张角：解决不了问题，就解决你啊！最大张角问题的三种解法】](https://www.bilibili.com/video/BV1sKZBYiEeG)
 
 ## 更多细节
 
@@ -15,7 +16,7 @@
 
 ## Manim 视频制作者可能感兴趣
 
-`mobj/` 文件夹下整理了一些我比较常用的自定义的 Mobject 类，您可以在遵守[开源协议](LICENSE)的前提下拿去使用：
+[`mobj/`](mobj) 文件夹下整理了一些我比较常用的自定义的 Mobject 类，您可以在遵守[开源协议](LICENSE)的前提下拿去使用：
 
 - `AngleMark` - 一个角的小圆弧标记和名字标记，当角的大小和位置发生变化时，小圆弧和名字会自动调整
 - `WithBackground` - 给对象添加一个黑色半透明的背景

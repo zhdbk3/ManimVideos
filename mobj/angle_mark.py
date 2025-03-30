@@ -8,7 +8,8 @@ import numpy as np
 
 class AngleMark(VGroup):
     def __init__(self, vertex: np.ndarray | Mobject, initial_side: Line, terminal_side: Line, label: str,
-                 r: float | int = 0.55, always_positive: bool = True, add_tip: bool = False):
+                 r: float | int = 0.55, always_positive: bool = True, add_tip: bool = False,
+                 colour: ParsableManimColor = WHITE):
         """
         一个角的小圆弧标记和名字标记，当角的大小和位置发生变化时，小圆弧和名字会自动调整
         :param vertex: 角的顶点
@@ -20,35 +21,41 @@ class AngleMark(VGroup):
         :param r: 小圆弧的半径
         :param always_positive: 是否永远为正角
         :param add_tip: 是否加上表示方向的小箭头
+        :param colour: 颜色（使用英式拼写以避讳 color）
         """
         self.vertex = vertex
         self.initial_side = initial_side
         self.terminal_side = terminal_side
-        self.label = MathTex(label)
+        self.label = MathTex(label, color=colour)
         self.r = r
         self.always_positive = always_positive
         self.add_tip = add_tip
         self.arc = Arc()
+        self.colour = colour
         self.updater(self)
         super().__init__(self.arc, self.label)
 
     def updater(self, _: Mobject) -> None:
         """自动调整小圆弧和标签"""
         try:
+            if isinstance(self.vertex, Mobject):
+                vertex = self.vertex.get_center()
+            else:
+                vertex = self.vertex
             # 调整小圆弧
             start_angle = self.initial_side.get_angle()
             end_angle = self.terminal_side.get_angle()
             angle = end_angle - start_angle
             if self.always_positive:
                 angle %= TAU
-            arc = Arc(self.r, start_angle, angle, arc_center=self.vertex)
+            arc = Arc(self.r, start_angle, angle, arc_center=vertex, fill_color=self.colour, stroke_color=self.colour)
             if self.add_tip:
                 arc.add_tip(tip_length=0.2, tip_width=0.2 * 2 / 3 * np.sqrt(3))
             self.arc.become(arc)
             # 调整标签
             direction = start_angle + angle / 2
             vec = np.array((np.cos(direction), np.sin(direction), 0))  # 标签相对于圆心的单位方向向量
-            self.label.move_to(self.vertex + vec * (self.r + 0.3))
+            self.label.move_to(vertex + vec * (self.r + 0.3))
         except ValueError:  # 两线平行时会报此错误
             pass
 
