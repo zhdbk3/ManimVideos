@@ -1,0 +1,13 @@
+[project]
+name = "manim-videos"
+version = "0.1.0"
+description = "本仓库收录了 着火的冰块nya 的所有 Manim 视频的源代码！"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "manim>=0.19.0",
+]
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple"
+default = true
